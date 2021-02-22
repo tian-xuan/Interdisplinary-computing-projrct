@@ -13,3 +13,6 @@
   We will determine whether such methods create a better predictive model than the NHS’s current pencil and paper method, which we will apply to the data via Python. We found patient data collected in China on several hundred T2DM patients that we then used to compare methods. 
   
   While we hope to obtain a more predictive AI model, we also recognize the utility of easy pen and paper models in clinical settings. Thus, we will also try to develop a system requiring only simple math but offers more predictive power than current methods. 
+
+### Dataset
+Our dataset is from:
