@@ -1,0 +1,6 @@
+Agreed Contributions from each member: 
+Ka: Will work on the user interface, where patients will know what data to give. He will also research pen and paper methods and design a python program that uses these to calculate a score for patients. He will work with Joshua to advise on which factors are useful. 
+Joshua: Will do much of the writing. Will also work on the factor weighting methods. Joshua will also advise on which factors to work on. 
+Hanyuan: Will learn and perform the machine learning techniques on the given data and try to improve the accuracy of the results. Because he and Zhihao are living together, they would collaborate on most tasks.
+Zhihao: Will help on performing the factor method via Python. As mentioned, he and Hanyuan will collaborate on carrying out the machine learning method. Will also look into the technique of machine learning and try to develop our own program based on the existing package.  
+Everyone: We will use statistical techniques to compare the models.  
