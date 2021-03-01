@@ -16,9 +16,5 @@
 
 #
 
-asdfghjkl
-
-zzzzzzzzzz
-
-zzh
+This is a test file
 
