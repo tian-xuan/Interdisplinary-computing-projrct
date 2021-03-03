@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 '''
 read data
 '''
-data = pd.read_csv("D:\Imperial_study_profile\I-Explore\diabetes.csv")
+data = pd.read_csv("Data/Train_data.csv")
 
 X = data.iloc[:,0:8] #Input argument
 Y = data.iloc[:,8] #Output argument
@@ -68,23 +68,36 @@ Train the model
 '''
 gs.fit(X_train,Y_train)#Train the model
 
+# %%
+"""
+Varification
+"""
+varifi_data = pd.read_csv("Data/Verification_data.csv")
+
+X_ver = data.iloc[:,0:8] #Input argument
+Y_ver = data.iloc[:,8] #Output argument
+
+X_ver = poly.fit_transform(X_ver)#Generate test feature
+X_ver = select.transform(X_ver)#Selecr test feature
 
 
-X_test = poly.fit_transform(X_test)#Generate test feature
+print(gs.score(X_ver,Y_ver))#print the accuracy of the result
 
-X_test = select.transform(X_test)#Selecr test feature
-#%%
-print(gs.score(X_test,Y_test))#print the accuracy of the result
-#%%
-print(gs.predict(X_test))# print the prediction of each row
-#%%
+
+print(gs.predict(X_ver))# print the prediction of each row
+
+
 weight = gs.best_estimator_.feature_importances_
 print(gs.best_estimator_.feature_importances_)#print the statistical weight of each feature in the forest
 #%%
 '''
 save the model if we want
 '''
-#joblib.dump(gs, 'D:\Imperial_study_profile\I-Explore\modeln')
+#joblib.dump(gs, 'model')
+
+
+
+
 #%% 
 '''
 Visulisation part starts from here
