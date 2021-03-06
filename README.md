@@ -14,6 +14,11 @@
   
   While we hope to obtain a more predictive AI model, we also recognize the utility of easy pen and paper models in clinical settings. Thus, we will also try to develop a system requiring only simple math but offers more predictive power than current methods. 
 
+
+### Manual Scoresheet
+  Found out normal ranges for each of the 6 variables (Glucose,BP,Insulin,BMI,FHx,Age) and assigned scores. Distributed score weighting based on their each variable's effect on diabetes risk (Age 4x importance in diabetes & given 4x score weight compared to glucose). Scores are added up (up to 14), totalled and compared to the outcome for each patient with a ROC Curve analysis tool to determine best cutoff. I decided on a cutoff of 4 or higher to indicate diabetes (outcome 1 means diabetes, 0 means healthy) as it gave a sensitivity of 75% and specificity of 60%, similar to tools such as ADA(79,67), AUDRISK(74,67), and FINDRISC(78, 77).
+75% sensitivity = if you have diabetes, scoresheet has 75% chance of identifying you as diabetic
+60% specificity = if you don't have diabetes, scoresheet has 60% chance of identifying you as non diabetic
 #
 
 asdfghjkl
