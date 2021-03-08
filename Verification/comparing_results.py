@@ -24,7 +24,7 @@ plt.rcParams.update(params)
 Show the verification data
 '''
 # inport the verification data
-ver_data = list(np.loadtxt('Verification_data.csv',dtype=int,delimiter=',',skiprows=1,usecols=(8)))
+ver_data = list(np.loadtxt("../Data/Verification_data.csv",dtype=int,delimiter=',',skiprows=1,usecols=(8)))
 
 # determine the distribution of the outcomes of the verification data
 num_of_0 = ver_data.count(0)
