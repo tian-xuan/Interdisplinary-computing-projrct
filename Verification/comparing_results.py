@@ -16,7 +16,7 @@ plt.rcParams.update(params)
 
 # %%
 # import the result predicted from the model here 
-# prediction = pd.readcsv('')
+prediction = np.loadtxt('../Random_forest/RandomForest_Prediction(1).txt')
 
 
 # %%
@@ -26,24 +26,9 @@ Show the verification data
 # inport the verification data
 ver_data = list(np.loadtxt("../Data/Verification_data.csv",dtype=int,delimiter=',',skiprows=1,usecols=(8)))
 
-# determine the distribution of the outcomes of the verification data
-num_of_0 = ver_data.count(0)
-num_of_1 = ver_data.count(1)
+# classify the verification dataset
+p_0,p_1 = cm.binary_distribution(ver_data)
 
-p_0 = num_of_0/len(ver_data)
-p_1 = num_of_1/len(ver_data)
-print('The probability of true outcome is %.3f'%(p_1))
-print('The probability of the false outcome is %.3f'%(p_0))
-
-# plot the outcomes' distribution
-fig1 = plt.figure(figsize=[6,4],tight_layout=True)
-ax = plt.axes()
-ax.bar([0,1],[num_of_0,num_of_1],0.6)
-ax.set_xticks([0,1])
-ax.set_xticklabels([0,1])
-plt.xlabel('outcomes')
-plt.ylabel('counts')
-plt.show()
 
 # %%
 '''
@@ -62,7 +47,9 @@ classification,sensitivity,specificity = cm.Check_correctness(random_guess,ver_d
 Check with the prediction from the model
 '''
 # determine the correctness of the prediction from the model 
-#classification,sensitivity,specificity = cm.Check_correctness(prediction,ver_data,plot=True,figsize=[6,4])
+classification,sensitivity,specificity = cm.Check_correctness(prediction,ver_data,plot=True,figsize=[6,4])
+
+pre,acc = cm.format(classification)
 
 
 # %%
