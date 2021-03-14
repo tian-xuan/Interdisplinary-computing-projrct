@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 def Check_correctness(result,data,string=True,plot=True,figsize=[8,6]):
-    '''
+    """
     Return the correctness of the classification, the sensitivity and the specificity.
     
     The four types of classifications are given in the order of ['true positive','ture negative','false positive','false negative']
@@ -42,7 +42,8 @@ def Check_correctness(result,data,string=True,plot=True,figsize=[8,6]):
 
     specificity : float
     The specificity of the prediction.
-    '''
+    """
+
     # check the data size
     if len(data) is not len(result):
         raise Exception('Sizes of the input and the data are not compatible')
@@ -96,6 +97,64 @@ def Check_correctness(result,data,string=True,plot=True,figsize=[8,6]):
 
     return [_true_positive,_true_negative,_false_positive,_false_negative],_sensitivity,_specificity
 
+def binary_distribution(data,plot=True):
+    """
+    Return the distribution of a binary data set.
+
+    Parameter
+    ---------
+    data : array_like
+    The dataset to be counted
+
+    plot : bool, optional
+    When is true, all histogram will be shown. Defaut is True.
+
+    Return 
+    ------
+    p_0 : float
+    The probability of the outcome to be 0
+
+    p_1 : float
+    The probability of the outcome to be 1
+    """
+    # determine the distribution of the outcomes of the verification data
+    num_of_0 = data.count(0)
+    num_of_1 = data.count(1)
+
+    p_0 = num_of_0/len(data)
+    p_1 = num_of_1/len(data)
+    print('The probability of true outcome is %.3f'%(p_1))
+    print('The probability of false outcome is %.3f'%(p_0))
+
+    if plot:
+        # plot the outcomes' distribution
+        fig1 = plt.figure(figsize=[6,4],tight_layout=True)
+        ax = plt.axes()
+        ax.bar([0,1],[num_of_0,num_of_1],0.4)
+        ax.set_xticks([0,1])
+        ax.set_xticklabels([0,1])
+        plt.xlabel('outcomes')
+        plt.ylabel('counts')
+        plt.show()
+
+    return p_0,p_1
+
+
+def format(classification):
+    TP = classification[0]
+    TN = classification[1]
+    FP = classification[2]
+    FN = classification[3]
+
+    TPR = TP/(TP + FN)
+    FNR = FN/(TP + FN)
+    FPR = FP/(FP + TN)
+    TNR = TN/(FP + TN)
+
+    Prevalence = (TP + FN) / np.sum(classification)
+    Accuracy = (TP + TN) / np.sum(classification)
+
+    return Prevalence, Accuracy
 
 
 
