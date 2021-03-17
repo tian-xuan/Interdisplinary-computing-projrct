@@ -60,7 +60,7 @@ def Check_correctness(result,data,string=True,plot=True,figsize=[8,6]):
             if result[i] == 1:
                 _true_positive += 1
             elif result[i] == 0:
-                _false_positive += 1
+                _false_negative += 1
             else:
                 raise Exception('Except input as 0 or 1 but given',result[i])
                 break
@@ -68,7 +68,7 @@ def Check_correctness(result,data,string=True,plot=True,figsize=[8,6]):
             if result[i] == 0:
                 _true_negative += 1
             elif result[i] == 1:
-                _false_negative += 1
+                _false_positive += 1
             else:
                 raise Exception('Except input as 0 or 1 but given',result[i])
                 break
