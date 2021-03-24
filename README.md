@@ -21,8 +21,6 @@
 60% specificity = if you don't have diabetes, scoresheet has 60% chance of identifying you as non diabetic
 #
 
-asdfghjkl
 
-Hi beep
 
 
